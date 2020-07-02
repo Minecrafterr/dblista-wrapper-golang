@@ -23,7 +23,7 @@ func GetBotInfo(id string) {
 	}
 
 
-func UpdateStats(token string, users int, servers int) {
+func UpdateStats(token string, users string, servers string) {
 	client := &http.Client{}
     
         body := []byte("{\n  \"members\":"+users+",\n  \"servers\":"+servers+"\n}")

@@ -18,12 +18,7 @@ func GetBotInfoFull(id string, info string) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	
-	info, err := gjson.Get(string(body), "data."+info).String()
-	if err != nil {
-		fmt.Println(err)
-	}
-	return info
+	return gjson.Get(string(body), "data."+info).String()
 }
 
 func GetBotInfo(id string) {

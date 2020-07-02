@@ -8,6 +8,24 @@ import (
 	"bytes"
 )
 
+func GetBotInfoFull(id string, info string) {
+	resp, err := http.Get("https://api.dblista.pl/v1/bots/"+id)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(err)
+	}
+	
+	info, err := gjson.Get(string(body), "data."+info).String()
+	if err != nil {
+		fmt.Println(err)
+	}
+	return info
+}
+
 func GetBotInfo(id string) {
 	resp, err := http.Get("https://api.dblista.pl/v1/bots/"+id)
 	if err != nil {

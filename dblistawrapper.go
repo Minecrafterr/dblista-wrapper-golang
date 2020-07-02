@@ -26,7 +26,7 @@ func GetBotInfo(id string) {
 func UpdateStats(token string, users int, servers int) {
 	client := &http.Client{}
     
-        body := []byte("{\n  \"members\": users,\n  \"servers\": servers\n}")
+        body := []byte("{\n  \"members\":"+users+",\n  \"servers\":"+servers+"\n}")
     
         req, _ := http.NewRequest("POST", "https://api.dblista.pl/v1/bots/stats", bytes.NewBuffer(body))
     

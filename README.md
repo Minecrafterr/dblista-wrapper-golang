@@ -12,9 +12,8 @@ Będzie on stale rozwijany
 ## Przykładowe użycie
 ```go
 package main
-import (
-	"github.com/Minecrafterr/dblista-wrapper-golang"
-)
+import "github.com/Minecrafterr/dblista-wrapper-golang"
+
 
 
 func Main() {

@@ -22,6 +22,7 @@ func GetBotInfo(id string) {
 	fmt.Println("Name: " + gjson.Get(string(body), "data.name").String() + "\nRating average: " + gjson.Get(string(body), "data.rating.average").String()+"\nVotes count: "+gjson.Get(string(body), "data.votes").String()+"\nYour bot is boosted by user with id "+gjson.Get(string(body), "data.premium.booster").String()+"\nBoost ends at (timestamp) "+gjson.Get(string(body), "data.premium.end").String())
 	}
 
+
 func UpdateStats(token string, users int, servers int) {
 	client := &http.Client{}
     
@@ -44,5 +45,4 @@ func UpdateStats(token string, users int, servers int) {
     
         fmt.Println(resp.Status)
         fmt.Println(string(resp_body))
-}
 }

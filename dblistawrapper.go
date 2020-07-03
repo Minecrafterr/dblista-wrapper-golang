@@ -87,7 +87,7 @@ type BotRes struct {
   }
 var d BotRes
 json.Unmarshal(body, &d)
-return d.data
+return d
 	}
 
 

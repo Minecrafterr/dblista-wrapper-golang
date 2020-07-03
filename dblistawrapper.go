@@ -7,20 +7,6 @@ import (
 	"bytes"
 	"encoding/json"
 )
-
-
-func GetBotInfo(id string) {
-	resp, err := http.Get("https://api.dblista.pl/v1/bots/"+id)
-if err != nil {
-    // handle err
-    fmt.Println(err)
-}
-defer resp.Body.Close()
-body, err := ioutil.ReadAll(resp.Body)
-if err != nil {
-    fmt.Println(err)
-}
-
 type VotelogModel struct {
     Timestamp int `json:"timestamp"`
     User string `json:"user"`
@@ -85,6 +71,20 @@ type BotModel struct {
 type BotRes struct {
     Data BotModel `json:"data"`
   }
+
+func GetBotInfo(id string) BotRes {
+	resp, err := http.Get("https://api.dblista.pl/v1/bots/"+id)
+if err != nil {
+    // handle err
+    fmt.Println(err)
+}
+defer resp.Body.Close()
+body, err := ioutil.ReadAll(resp.Body)
+if err != nil {
+    fmt.Println(err)
+}
+
+
 var d BotRes
 json.Unmarshal(body, &d)
 return d

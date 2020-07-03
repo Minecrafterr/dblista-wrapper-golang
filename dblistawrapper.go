@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"io/ioutil"
 	"bytes"
+	"encoding/json"
 )
 
 
@@ -86,7 +87,7 @@ type BotRes struct {
   }
 var d BotRes
 json.Unmarshal(body, &d)
-return d
+return d.data
 	}
 
 

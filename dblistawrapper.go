@@ -72,6 +72,56 @@ type BotRes struct {
     Data BotModel `json:"data"`
   }
 
+type ServerVotelogModel struct {
+        Timestamp int `json:"timestamp"`
+        User string `json:"user"`
+    }
+    type ServerRatingsModel struct {
+        Author string `json:"author"`
+        Rating int `json:"rating"`
+        Details string `json:"details"`
+    }
+    type ServerInfoModel struct {
+        FullDescription string `json:"fullDescription"`
+        ShortDescription string `json:"shortDescription"`
+        Tags []string `json:"tags"`
+    }
+    type ServerLinksModel struct {
+        Discord string `json:"discordServer"`
+        Www string `json:"website"`
+    }
+    type ServerPremiumModel struct {
+        Booster string `json:"booster"`
+        CardColor string `json:"cardStyle"`
+        End string `json:"end"`
+        Start string `json:"start"`
+    }
+    type ServerRatingModel struct {
+        Avarage int `json:"average"`
+        Order int `json:"order"`
+        Ratings []ServerRatingsModel `json:"ratings"`
+    }
+    type ServerStatModel struct {
+        Max int `json:"max"`
+        Online int `json:"online"`
+    }
+    type ServerModel struct {
+        Avatar string `json:"avatarURL"`
+        ID string  `json:"id"`
+        Name string  `json:"name"`
+        Owner string  `json:"ownerID"`
+        Votes uint16  `json:"votes"`
+        InvitePermissions int `json:"invitePermissions"`
+        Votelog []ServerVotelogModel `json:"votelog"`
+        Info ServerInfoModel `json:"info"`
+        Links ServerLinksModel `json:"links`
+        Ratings ServerRatingModel `json:"rating"`
+        Stats ServerStatModel `json:"stats"`
+    }
+type ServerRes struct {
+    Data ServerModel `json:"data"`
+  }
+
 func GetBotInfo(id string) BotRes {
 	resp, err := http.Get("https://api.dblista.pl/v1/bots/"+id)
 if err != nil {
@@ -84,12 +134,26 @@ if err != nil {
     fmt.Println(err)
 }
 
-
 var d BotRes
 json.Unmarshal(body, &d)
 return d
 	}
-
+func GetServerInfo(id string) ServerRes {
+resp, err := http.Get("https://api.dblista.pl/v1/servers/"+id)
+    if err != nil {
+        // handle err
+        fmt.Println(err)
+    }
+    defer resp.Body.Close()
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+    }
+    
+    var d ServerRes
+    json.Unmarshal(body, &d)
+    return d
+}
 
 func UpdateStats(token string, users string, servers string) {
 	client := &http.Client{}

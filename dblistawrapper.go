@@ -86,7 +86,8 @@ if err != nil {
 
 
 var d BotRes
-return json.Unmarshal(body, &d)
+json.Unmarshal(body, &d)
+return d
 	}
 
 

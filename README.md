@@ -19,9 +19,12 @@ import "github.com/Minecrafterr/dblista-wrapper-golang"
 func Main() {
 // Updatowanie statystyk
   dblistawrapper.UpdateStats("token", "liczba użytkowników", "liczba serwerów")
-// Funkcja wyświetlanie informacji o bocie. Aby wybrać dane które nas obchodzą wpiszcie na końcu funkcji np. .Data.Name po imię
+// Funkcja wyświetlanie informacji o bocie. Aby wybrać dane które nas obchodzą wpiszcie na końcu funkcji np. .Data.Name po nazwę
 var d dblistawrapper.GetBotInfo("ID bota z dblisty")
  fmt.Println("Nazwa bota: "+d.Data.Name+"\nOpis krótki: "+d.Info.ShortDescription)
+ // Funkcja wyświetlania informacji o serwerze. Aby wybrać dane które nas obchodzą wpiszcie na końcu funkcji np. .Data.Name po nazwę
+ var s dblistawrapper.GetServerInfo("id serwera z dblisty")
+fmt.Println("Nazwa serwera: "+s.Data.Name+"\nOpis krótki: "+s.Info.ShortDescription)
 }
 ```
 

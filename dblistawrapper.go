@@ -122,6 +122,44 @@ type ServerRes struct {
     Data ServerModel `json:"data"`
   }
 
+type UserPremium struct {
+        BoostedBot string `json:"boostedBot"`
+        BoostedServer string `json:"boostedServer"`
+        End int `json:"end"`
+        Start int `json:"start"`
+    }
+    type UserModel struct {
+        Avatar string `json:"avatar"`
+        ID string  `json:"id"`
+        LastRequestTime int `json:"lastRequestTime"`
+        RecentRequests int `json:"recentRequests"`
+        Username string  `json:"username"`
+        Ban bool `json:"ban"`
+        Money int `json:"invitePermissions"`
+        Perm int `json:"perm"`
+        Premium UserPremium `json:"premium"`
+    }
+    type UserRes struct {
+        Data UserModel `json:"data"`
+      }
+
+func GetUserInfo(id string) UserRes {
+	resp, err := http.Get("https://api.dblista.pl/v1/users/"+id)
+	if err != nil {
+        // handle err
+        fmt.Println(err)
+    }
+    defer resp.Body.Close()
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+    }
+    
+    var d UserRes
+    json.Unmarshal(body, &d)
+    return d
+}
+
 func GetBotInfo(id string) BotRes {
 	resp, err := http.Get("https://api.dblista.pl/v1/bots/"+id)
 if err != nil {

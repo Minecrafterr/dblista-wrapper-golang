@@ -29,3 +29,5 @@ fmt.Println("Nazwa serwera: "+s.Data.Name+"\nOpis krótki: "+s.Info.ShortDescrip
 ```
 
 UWAGA! Powyższy kod jest tylko przykładem!
+## Dokumentacja wrappera
+Dokumentacja wrappera jest w pliku docs.md

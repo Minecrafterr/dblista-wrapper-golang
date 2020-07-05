@@ -142,6 +142,89 @@ type UserPremium struct {
     type UserRes struct {
         Data UserModel `json:"data"`
       }
+func BoostServer(id string, token string) {
+client := &http.Client{}
+
+	req, _ := http.NewRequest("POST", "https://api.dblista.pl/v1/servers/"+ID+"/boost", nil)
+
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Authorization", token)
+
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Errored when sending request to the server")
+		return
+	}
+
+	defer resp.Body.Close()
+	resp_body, _ := ioutil.ReadAll(resp.Body)
+
+	return resp.Status+"\n"+string(resp_body)
+}
+func RemoveServerBoost(id string, token string) {
+client := &http.Client{}
+
+	req, _ := http.NewRequest("DELETE", "https://api.dblista.pl/v1/servers/"+ID+"/boost", nil)
+
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Authorization", token)
+
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Errored when sending request to the server")
+		return
+	}
+
+	defer resp.Body.Close()
+	resp_body, _ := ioutil.ReadAll(resp.Body)
+
+	return resp.Status+"\n"+string(resp_body)
+}
+
+func BoostBot(id string, token string) {
+client := &http.Client{}
+
+	req, _ := http.NewRequest("POST", "https://api.dblista.pl/v1/bots/"+ID+"/boost", nil)
+
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Authorization", token)
+
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Errored when sending request to the server")
+		return
+	}
+
+	defer resp.Body.Close()
+	resp_body, _ := ioutil.ReadAll(resp.Body)
+
+	return resp.Status+"\n"+string(resp_body)
+}
+
+func RemoveBotBoost(id string, token string) {
+client := &http.Client{}
+
+	req, _ := http.NewRequest("DELETE", "https://api.dblista.pl/v1/bots/"+ID+"/boost", nil)
+
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Authorization", token)
+
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Errored when sending request to the server")
+		return
+	}
+
+	defer resp.Body.Close()
+	resp_body, _ := ioutil.ReadAll(resp.Body)
+
+	return resp.Status+"\n"+string(resp_body)
+}
+
 func RateBot(id string, rate int, description string, token string) {
 	client := &http.Client{}
 
@@ -187,12 +270,12 @@ func GetUserInfo(id string) UserRes {
 	resp, err := http.Get("https://api.dblista.pl/v1/users/"+id)
 	if err != nil {
         // handle err
-        fmt.Println(err)
+        return err
     }
     defer resp.Body.Close()
     body, err := ioutil.ReadAll(resp.Body)
     if err != nil {
-        fmt.Println(err)
+        return err
     }
     
     var d UserRes
@@ -204,12 +287,12 @@ func GetBotInfo(id string) BotRes {
 	resp, err := http.Get("https://api.dblista.pl/v1/bots/"+id)
 if err != nil {
     // handle err
-    fmt.Println(err)
+    return err
 }
 defer resp.Body.Close()
 body, err := ioutil.ReadAll(resp.Body)
 if err != nil {
-    fmt.Println(err)
+    return err
 }
 
 var d BotRes
@@ -220,12 +303,12 @@ func GetServerInfo(id string) ServerRes {
 resp, err := http.Get("https://api.dblista.pl/v1/servers/"+id)
     if err != nil {
         // handle err
-        fmt.Println(err)
+        return err
     }
     defer resp.Body.Close()
     body, err := ioutil.ReadAll(resp.Body)
     if err != nil {
-        fmt.Println(err)
+        return err
     }
     
     var d ServerRes

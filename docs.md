@@ -1,4 +1,17 @@
 # Dokumentacja wrappera
+## Dane
+### Token api
+W niektórych funkcjach do botów trzeba wziąść token api. Skąd można go zabrać?<br>
+- W swoim bocie kliknij przycisk edytuj (jeśli jesteś właścicielem drugim itd. dopisz do linku bota /edit<br>
+- Zjedź do samych przycisków Anuluj i Zapisz<br>
+- Mamy kategorię statystyki bota (https://prnt.sc/tc8d70)<br>
+- Klikamy wygeneruj token api i kopiujemy token do schowka (możesz już anulować edycję)<br>
+### Token użytkownika
+Aby uzyskać token użytkownika trzeba:<br>
+- zalogować się na https://dblista.pl<br>
+- wejść w informacje o stronie -> pliki cookies<br>
+- znaleźć klucz `sessionToken`<br>
+- odkodować go z base64 (można użyć https://base64decode.org)<br>
 ## Boty
 ### Update statystyk
 ```go
@@ -9,20 +22,10 @@ Token można wziąść z edycji bota
 ```go
 dblistawrapper.VoteBot("id bota", "token użytkownika")
 ```
-Aby uzyskać token użytkownika trzeba:<br>
-- zalogować się na https://dblista.pl<br>
-- wejść w informacje o stronie -> pliki cookies<br>
-- znaleźć klucz `sessionToken`<br>
-- odkodować go z base64 (można użyć https://base64decode.org)<br>
 ### Dodawanie opinii
 ```go
 dblistawrapper.RateBot("id bota", ocena, "komentarz", "token użytkownika")
 ```
-Aby uzyskać token użytkownika trzeba:<br>
-- zalogować się na https://dblista.pl<br>
-- wejść w informacje o stronie -> pliki cookies<br>
-- znaleźć klucz `sessionToken`<br>
-- odkodować go z base64 (można użyć https://base64decode.org)<br>
 ### Informacje o bocie
 ```go
 // Wszystkie dane w jsonie
@@ -56,6 +59,14 @@ Lista dostępnych rzeczy (boty):<br>
 .Data.Status.Verification - Status weryfikacji<br>
 .Data.Uptime.Max - Maks punktów<br>
 .Data.Uptime.Online - Ilość punktów kiedy bot był online<br>
+### Ulepszanie bota (Wymagane premium na dbliście)
+```go
+dblistawrapper.BoostBot("id bota", "token użytkownika")
+```
+### Usuwanie ulepszenia bota (Wymagane premium na dbliście)
+```go
+dblistawrapper.RemoveBotBoost("id bota", "token użytkownika")
+```
 ## Serwery
 ### Informacje o serwerze
 ```go
@@ -82,6 +93,14 @@ Lista dostępnych rzeczy (serwery):<br>
 .Data.Stats.MonthlyInvites - Miesięcznych dodać<br>
 .Data.Uptime.Max - Liczba wszystkich użytkowników<br>
 .Data.Uptime.Online - Liczba użytkowników online<br>
+### Ulepszanie serwera (Wymagane premium na dbliście)
+```go
+dblistawrapper.BoostServer("id serwera", "token użytkownika")
+```
+### Usuwanie ulepszenia serwera (Wymagane premium na dbliście)
+```go
+dblistawrapper.RemoveServerBoost("id serwera", "token użytkownika")
+```
 ## Informacja
 Wrapper jest ciągle rozwijany!
 Autor: Minecrafter!#9481 - Moderator dblisty

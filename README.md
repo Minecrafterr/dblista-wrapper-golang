@@ -6,7 +6,7 @@ go get -u github.com/Minecrafterr/dblista-wrapper-golang
 ```
 
 ## Informacja
-Aktualnie wrapper ma tylko 2 funkcje (aktualizowanie statystyk oraz informacje o bocie)
+Aktualnie wrapper ma tylko kilka funkcji<br>
 Będzie on stale rozwijany
 
 ## Przykładowe użycie

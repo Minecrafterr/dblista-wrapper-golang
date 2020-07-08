@@ -101,6 +101,14 @@ dblistawrapper.BoostServer("id serwera", "token użytkownika")
 ```go
 dblistawrapper.RemoveServerBoost("id serwera", "token użytkownika")
 ```
+### Głosowanie na serwer
+```go
+dblistawrapper.VoteServer("id serwera", "token użytkownika")
+```
+### Dodawanie opinii
+```go
+dblistawrapper.RateServer("id serwera", ocena, "komentarz", "token użytkownika")
+```
 ## Informacja
 Wrapper jest ciągle rozwijany!
 Autor: Minecrafter!#9481 - Moderator dblisty

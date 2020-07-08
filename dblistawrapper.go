@@ -142,6 +142,47 @@ type UserPremium struct {
     type UserRes struct {
         Data UserModel `json:"data"`
       }
+func VoteServer(id string, token string) {
+client := &http.Client{}
+
+	req, _ := http.NewRequest("POST", "https://api.dblista.pl/v1/servers/"+id+"/vote", nil)
+
+	req.Header.Add("Authorization", token)
+
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Errored when sending request to the server")
+		return
+	}
+
+	defer resp.Body.Close()
+	resp_body, _ := ioutil.ReadAll(resp.Body)
+
+	return resp.Status+"\n"+string(resp_body)
+}
+func RateServer(id string, rate int, description string, token string) {
+	client := &http.Client{}
+
+	body := []byte("{\n  \"rating\": "+rate+",\n  \"details\":"+description+"\n}")
+
+	req, _ := http.NewRequest("POST", "https://api.dblista.pl/v1/servers/"+id+"/rate", bytes.NewBuffer(body))
+
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Authorization", token)
+
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Errored when sending request to the server")
+		return
+	}
+
+	defer resp.Body.Close()
+	resp_body, _ := ioutil.ReadAll(resp.Body)
+
+	return resp.Status+"\n"+string(resp_body)
+}
 func BoostServer(id string, token string) {
 client := &http.Client{}
 

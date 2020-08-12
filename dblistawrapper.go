@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"bytes"
 	"encoding/json"
+	"strconv"
 )
 type VotelogModel struct {
     Timestamp int `json:"timestamp"`
@@ -357,10 +358,11 @@ resp, err := http.Get("https://api.dblista.pl/v1/servers/"+id)
     return d
 }
 
-func UpdateStats(token string, users string, servers string) {
+func UpdateStats(token string, users int, servers int) {
 	client := &http.Client{}
-    
-        body := []byte("{\n  \"members\":"+users+",\n  \"servers\":"+servers+"\n}")
+	u := strconv.Itoa(users)
+	s := strconv.Itoa(servers)
+        body := []byte("{\n  \"members\":"+u+",\n  \"servers\":"+s+"\n}")
     
         req, _ := http.NewRequest("POST", "https://api.dblista.pl/v1/bots/stats", bytes.NewBuffer(body))
     

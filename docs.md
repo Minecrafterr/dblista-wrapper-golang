@@ -15,7 +15,7 @@ Aby uzyskać token użytkownika trzeba:<br>
 ## Boty
 ### Update statystyk
 ```go
-dblistawrapper.UpdateStats("token", "liczba użytkowników", "liczba serwerów")
+dblistawrapper.UpdateStats("token", liczba użytkowników, liczba serwerów)
 ```
 Token można wziąść z edycji bota
 ### Głosowanie na bota
@@ -24,7 +24,7 @@ dblistawrapper.VoteBot("id bota", "token użytkownika")
 ```
 ### Dodawanie opinii
 ```go
-dblistawrapper.RateBot("id bota", ocena, "komentarz", "token użytkownika")
+dblistawrapper.RateBot("id bota", ocena 1-5, "komentarz", "token użytkownika")
 ```
 ### Informacje o bocie
 ```go
@@ -107,7 +107,7 @@ dblistawrapper.VoteServer("id serwera", "token użytkownika")
 ```
 ### Dodawanie opinii
 ```go
-dblistawrapper.RateServer("id serwera", ocena, "komentarz", "token użytkownika")
+dblistawrapper.RateServer("id serwera", ocena 1-5, "komentarz", "token użytkownika")
 ```
 ## Informacja
 Wrapper jest ciągle rozwijany!

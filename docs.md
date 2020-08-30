@@ -109,6 +109,20 @@ dblistawrapper.VoteServer("id serwera", "token użytkownika")
 ```go
 dblistawrapper.RateServer("id serwera", ocena 1-5, "komentarz", "token użytkownika")
 ```
+## Użytkownik
+### Informacje o użytkowniku
+```go
+dblistawrapper.getUserInfo("id użytkownika")
+```
+Lista dostępnych rzeczy (użytkownik):
+.Data.Avatar - Avatar użytkownika
+.Data.ID - ID użytkownika
+.Data.LastRequestTime - Timestamp ostatniego requesta
+.Data.RecentRequests - Ostatnie requesty
+.Data.Username - Nazwa 
+.Data.Ban - Czy zbanowany na dbliście
+.Data.Money - Ilość monet
+.Data.Perm - Poziom permisji
 ## Informacja
 Wrapper jest ciągle rozwijany!
 Autor: Minecrafter!#9481 - Moderator dblisty

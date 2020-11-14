@@ -1,5 +1,5 @@
 # Dokumentacja wrappera
-## WAŻNE! 27 Listopada zmiana nazwy wrappera
+## WAŻNE! 27 Listopada zmiana nazwy wrappera (dblista-wrapper-golang -> dlist-wrapper-go)
 ## Dane
 ### Token api
 W niektórych funkcjach do botów trzeba wziąść token api. Skąd można go zabrać?<br>
@@ -126,4 +126,4 @@ Lista dostępnych rzeczy (użytkownik):
 .Data.Perm - Poziom permisji
 ## Informacja
 Wrapper jest ciągle rozwijany!
-Autor: Minecrafter!#9481 - Moderator dblisty
+Autor: Minecrafter!#9481 - Nadmoderator DListy

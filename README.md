@@ -1,6 +1,6 @@
 # Wrapper do api dlisty w golangu
 
-## WAŻNE! 27 LISTOPADA ZMIANA NAZWY
+## WAŻNE! 27 LISTOPADA ZMIANA NAZWY WRAPPERA (dblista-wrapper-golang -> dlist-wrapper-go)
 
 ## Instalacja:
 

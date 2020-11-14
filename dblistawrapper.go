@@ -144,10 +144,6 @@ type UserPremium struct {
         Data UserModel `json:"data"`
       }
 
-func main() {
-	fmt.Println("UWAGA! Za dwa tygodnie (tj. 27 listopad 2020) wrapper zmieni nazwę na dlist-wrapper-golang")
-}
-
 func VoteServer(id string, token string) {
 client := &http.Client{}
 

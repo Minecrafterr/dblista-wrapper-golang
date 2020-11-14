@@ -1,4 +1,5 @@
 # Dokumentacja wrappera
+## WAŻNE! 27 Listopada zmiana nazwy wrappera
 ## Dane
 ### Token api
 W niektórych funkcjach do botów trzeba wziąść token api. Skąd można go zabrać?<br>
@@ -8,7 +9,7 @@ W niektórych funkcjach do botów trzeba wziąść token api. Skąd można go za
 - Klikamy wygeneruj token api i kopiujemy token do schowka (możesz już anulować edycję)<br>
 ### Token użytkownika
 Aby uzyskać token użytkownika trzeba:<br>
-- zalogować się na https://dblista.pl<br>
+- zalogować się na https://dlist.top<br>
 - wejść w informacje o stronie -> pliki cookies<br>
 - znaleźć klucz `sessionToken`<br>
 - odkodować go z base64 (można użyć https://base64decode.org)<br>

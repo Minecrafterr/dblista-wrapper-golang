@@ -1,4 +1,7 @@
-# Wrapper do api dblisty w golangu
+# Wrapper do api dlisty w golangu
+
+## WAŻNE! 27 LISTOPADA ZMIANA NAZWY
+
 ## Instalacja:
 
 ```

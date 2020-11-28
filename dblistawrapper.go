@@ -1,4 +1,4 @@
-package dblistawrapper
+package dlistwrapper
 
 import (
 	"fmt"

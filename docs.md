@@ -1,5 +1,4 @@
 # Dokumentacja wrappera
-## WAŻNE! 27 Listopada zmiana nazwy wrappera (dblista-wrapper-golang -> dlist-wrapper-go)
 ## Dane
 ### Token api
 W niektórych funkcjach do botów trzeba wziąść token api. Skąd można go zabrać?<br>
@@ -16,23 +15,23 @@ Aby uzyskać token użytkownika trzeba:<br>
 ## Boty
 ### Update statystyk
 ```go
-dblistawrapper.UpdateStats("token", liczba użytkowników, liczba serwerów)
+dlistwrapper.UpdateStats("token", liczba użytkowników, liczba serwerów)
 ```
 Token można wziąść z edycji bota
 ### Głosowanie na bota
 ```go
-dblistawrapper.VoteBot("id bota", "token użytkownika")
+dlistwrapper.VoteBot("id bota", "token użytkownika")
 ```
 ### Dodawanie opinii
 ```go
-dblistawrapper.RateBot("id bota", ocena 1-5, "komentarz", "token użytkownika")
+dlistwrapper.RateBot("id bota", ocena 1-5, "komentarz", "token użytkownika")
 ```
 ### Informacje o bocie
 ```go
 // Wszystkie dane w jsonie
-dblistawrapper.GetBotInfo("id bota")
+dlistwrapper.GetBotInfo("id bota")
 // Konkretne dane w tym wypadku nazwa bota
-dblistawrapper.GetBotInfo("id bota").Data.Name
+dlistawrapper.GetBotInfo("id bota").Data.Name
 ```
 Lista dostępnych rzeczy (boty):<br>
 .Data.Name - Nazwa <br>
@@ -62,19 +61,19 @@ Lista dostępnych rzeczy (boty):<br>
 .Data.Uptime.Online - Ilość punktów kiedy bot był online<br>
 ### Ulepszanie bota (Wymagane premium na dbliście)
 ```go
-dblistawrapper.BoostBot("id bota", "token użytkownika")
+dlistwrapper.BoostBot("id bota", "token użytkownika")
 ```
 ### Usuwanie ulepszenia bota (Wymagane premium na dbliście)
 ```go
-dblistawrapper.RemoveBotBoost("id bota", "token użytkownika")
+dlistwrapper.RemoveBotBoost("id bota", "token użytkownika")
 ```
 ## Serwery
 ### Informacje o serwerze
 ```go
 // Wszystkie dane w jsonie
-dblistawrapper.GetServerInfo("id")
+dlistwrapper.GetServerInfo("id")
 // Konkretne dane w tym wypadku nazwa serwera
-dblistawrapper.GetServerInfo("id").Data.Name
+dlistwrapper.GetServerInfo("id").Data.Name
 ```
 Lista dostępnych rzeczy (serwery):<br>
 .Data.Name - Nazwa <br>
@@ -96,24 +95,24 @@ Lista dostępnych rzeczy (serwery):<br>
 .Data.Uptime.Online - Liczba użytkowników online<br>
 ### Ulepszanie serwera (Wymagane premium na dbliście)
 ```go
-dblistawrapper.BoostServer("id serwera", "token użytkownika")
+dlistwrapper.BoostServer("id serwera", "token użytkownika")
 ```
 ### Usuwanie ulepszenia serwera (Wymagane premium na dbliście)
 ```go
-dblistawrapper.RemoveServerBoost("id serwera", "token użytkownika")
+dlistwrapper.RemoveServerBoost("id serwera", "token użytkownika")
 ```
 ### Głosowanie na serwer
 ```go
-dblistawrapper.VoteServer("id serwera", "token użytkownika")
+dlistwrapper.VoteServer("id serwera", "token użytkownika")
 ```
 ### Dodawanie opinii
 ```go
-dblistawrapper.RateServer("id serwera", ocena 1-5, "komentarz", "token użytkownika")
+dlistwrapper.RateServer("id serwera", ocena 1-5, "komentarz", "token użytkownika")
 ```
 ## Użytkownik
 ### Informacje o użytkowniku
 ```go
-dblistawrapper.getUserInfo("id użytkownika")
+dlistwrapper.getUserInfo("id użytkownika")
 ```
 Lista dostępnych rzeczy (użytkownik):
 .Data.Avatar - Avatar użytkownika

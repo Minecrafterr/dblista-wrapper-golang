@@ -1,11 +1,9 @@
 # Wrapper do api dlisty w golangu
 
-## WAŻNE! 27 LISTOPADA ZMIANA NAZWY WRAPPERA (dblista-wrapper-golang -> dlist-wrapper-go)
-
 ## Instalacja:
 
 ```
-go get -u github.com/Minecrafterr/dblista-wrapper-golang
+go get -u github.com/Minecrafterr/dlist-wrapper-golang
 ```
 
 ## Informacja
@@ -15,18 +13,18 @@ Będzie on stale rozwijany
 ## Przykładowe użycie
 ```go
 package main
-import "github.com/Minecrafterr/dblista-wrapper-golang"
+import "github.com/Minecrafterr/dlist-wrapper-golang"
 
 
 
 func Main() {
 // Updatowanie statystyk
-  dblistawrapper.UpdateStats("token", liczba użytkowników, liczba serwerów)
+  dlistwrapper.UpdateStats("token", liczba użytkowników, liczba serwerów)
 // Funkcja wyświetlanie informacji o bocie. Aby wybrać dane które nas obchodzą wpiszcie na końcu funkcji np. .Data.Name po nazwę
-var d dblistawrapper.GetBotInfo("ID bota z dblisty")
+var d dlistwrapper.GetBotInfo("ID bota z dblisty")
  fmt.Println("Nazwa bota: "+d.Data.Name+"\nOpis krótki: "+d.Info.ShortDescription)
  // Funkcja wyświetlania informacji o serwerze. Aby wybrać dane które nas obchodzą wpiszcie na końcu funkcji np. .Data.Name po nazwę
- var s dblistawrapper.GetServerInfo("id serwera z dblisty")
+ var s dlistwrapper.GetServerInfo("id serwera z dblisty")
 fmt.Println("Nazwa serwera: "+s.Data.Name+"\nOpis krótki: "+s.Info.ShortDescription)
 }
 ```
